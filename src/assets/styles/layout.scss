@@ -1,0 +1,67 @@
+@import './palette.scss';
+@import './typography.scss';
+.container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 2px solid blue;
+}
+.wrapper {
+  // border: 2px solid green;
+  width: 100%;
+  height: 100%;
+  @media only screen and (max-width: 809px) {
+    width: 85%;
+  }
+  @media only screen and (min-width: 810px) {
+    width: 60%;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dashboard-wrapper {
+  // border: 2px solid green;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  @media only screen and (min-width: 810px) {
+    margin: 18px 150px;
+    padding: 5px 30px;
+  }
+  // mobile
+  @media only screen and (max-width: 809px) {
+    margin: 18px 30px;
+    padding: 5px 20px;
+  }
+}
+.navigation {
+  font-family: $heading-font-family;
+  color: $header-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #484848;
+  line-height: 0px;
+  // desktop
+  @media only screen and (min-width: 810px) {
+    margin: 18px 150px;
+    padding: 5px 30px;
+    height: 60px;
+    font-size: 15px;
+  }
+  // mobile
+  @media only screen and (max-width: 809px) {
+    margin: 18px 30px;
+    padding: 5px 20px;
+    height: 60px;
+    ul{
+      display: none;
+    }
+  }
+}

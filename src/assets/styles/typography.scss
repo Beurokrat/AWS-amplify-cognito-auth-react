@@ -1,0 +1,69 @@
+@import './palette.scss';
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+// Typography variables
+$base-font-size: 16px;
+$base-line-height: 1.5;
+// $base-font-family: 'Montserrat', sans-serif;
+$base-font-family: 'Poppins', sans-serif;
+// $base-font-family: 'Open Sans', sans-serif;
+$base-font-weight: 300;
+$heading-font-family:  'Playfair Display', serif;
+$emphasis-font-family:  'Permanent Marker', cursive;
+// $emphasis-font-family:  'Nanum Pen Script', cursive;;
+$heading-font-weight: 400;
+$heading-line-height: 1.2;
+$heading-color: #333;
+
+// Global typography styles
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: $base-font-weight;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  line-height: $heading-line-height;
+  color: $heading-color;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-family: $emphasis-font-family;
+  color: $accent-green;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04rem;
+}
