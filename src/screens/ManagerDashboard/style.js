@@ -35,7 +35,7 @@ export const ListingContainer = styled.div`
   border: 1px solid #333;
   overflow: auto;
   height: 100%;
-  margin-top:40px;
+  margin-top: 40px;
 `;
 export const Listing = styled.div`
   margin: 10px 0px;
@@ -52,24 +52,28 @@ export const ListingFilter = styled.div`
   padding: 10px;
   width: 320px;
   border-radius: 7px;
-  :hover {
-    box-shadow: 10px 10px 15px #e0e0e0, -10px -10px 15px #ffffff;
-  }
 `;
 export const Addlisting = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template: 40px / 10% 70% 20%;
+  align-items: center;
   select {
-    margin: 3px 0px;
-    width:50%;
+    margin: 1px 0px;
+    width: 100%;
+    height: 100%;
+  }
+  h5 {
+    margin-bottom: 0px;
   }
 `;
 export const AddListingButton = styled.div`
   padding: 10px;
   height: 1.7rem;
+  width: fit-content;
+  float: right;
   border-radius: 7px;
-  :hover{
+  justify-self: end;
+  :hover {
     box-shadow: 10px 10px 15px #e0e0e0, -10px -10px 15px #ffffff;
   }
 `;
@@ -78,7 +82,7 @@ export const Summary = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 10px;
-  
+
   p {
     text-align: left;
     padding: 10px;

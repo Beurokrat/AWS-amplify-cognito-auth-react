@@ -65,12 +65,12 @@ const ManagerDashboard = () => {
           <h3>Good Morning Don!</h3>
         </div>
         <Addlisting>
+          <h5>View : </h5>
           <select>
-            <option>Sales Executive</option>
-            <option>Marketing Executive</option>
+            <option>Job Listings</option>
+            <option>Applications</option>
           </select>
-          <AddListingButton ref={devRef}>+ Job Description</AddListingButton>
-          <AddListingButton ref={devRef}>Create</AddListingButton>
+          <AddListingButton ref={devRef}>+ Add Listing</AddListingButton>
         </Addlisting>
         <ListingContainer>
           <Listing ref={devRef}>
