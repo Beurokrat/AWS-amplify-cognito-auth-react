@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 const Header = ({ user, signOut }) => {
   const [session, setSession] = useState('LogIn');
   useEffect(() => {
-    if (user) setSession('LogOut');
-  }, [session]);
-  console.log('navigation', user);
-  console.log('sess', session);
+    if (user?.attributes) setSession('LogOut')
+    else setSession('LogIn')
+  }, [user]);
   return (
     <>
       <Nav>
@@ -23,7 +22,7 @@ const Header = ({ user, signOut }) => {
             <Link to='/hr-dashboard'>Dashboard</Link>
           </MenuItem>
           <MenuItem>
-            <Link  onClick={signOut}>{session}</Link>
+            <Link to='/sign-in' onClick={signOut}>{session}</Link>
           </MenuItem>
         </MenuList>
       </Nav>

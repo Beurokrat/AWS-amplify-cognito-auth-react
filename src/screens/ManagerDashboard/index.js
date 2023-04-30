@@ -14,7 +14,7 @@ import {
 } from './style';
 import './animations';
 
-const ManagerDashboard = () => {
+const ManagerDashboard = ({isManager}) => {
   const headingRef = useRef(null);
   const desRef = useRef(null);
   const devRef = useRef(null);
@@ -43,6 +43,7 @@ const ManagerDashboard = () => {
         ease: 'linear',
       });
   }, []);
+  if(!isManager) return <h3>No Access to this Dashboard</h3>
   return (
     <div className='dashboard-wrapper'>
       <SummarySection>
