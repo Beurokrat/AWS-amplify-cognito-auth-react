@@ -10,6 +10,11 @@
       "StackName": "amplify-salesphere-dev-202251",
       "StackId": "arn:aws:cloudformation:ap-south-1:571815360119:stack/amplify-salesphere-dev-202251/4a243df0-e5d4-11ed-bc87-0a9dd75249ee",
       "AmplifyAppId": "d3j3sf1n4zvvfq"
+    },
+    "categories": {
+      "auth": {
+        "salesphere400e13a1": {}
+      }
     }
   }
 }
