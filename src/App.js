@@ -2,33 +2,43 @@ import './App.scss';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { Home, About, ManagerDashboard, Solutions, Contact } from './screens';
+import { Home, About, ManagerDashboard, Solutions, Contact, SignIn } from './screens';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Auth } from 'aws-amplify'
 
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+// eslint-disable-next-line react-hooks/exhaustive-deps
+function App() {
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [user, setUser] = useState({})
 
-const protectedRoute = ({ user, component: Component, userRole }) => {
-  console.log('here');
-  if (user) {
-    if (user.signInUserSession?.accessToken?.payload?.scope?.includes(userRole))
-      return <Component />;
-    return <Home />;
+  const getData = async () => {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      setIsAdmin(user.signInUserSession.accessToken.payload['cognito:groups'].includes('admin'))
+      setUser(user)
+    } catch (err) {
+      setIsAdmin(false)
+      setUser()
+      console.error(err)
+    }
   }
-};
-function App({ signOut, user }) {
+  useEffect(() => {
+    getData()
+  },[])
   return (
     <>
       <Router>
         <div className='App'>
           <div className='navigation'>
-            <Header user={user} signOut={signOut} />
+            <Header user={user} signOut={async () => {await Auth.signOut().then(()=>getData())}} />
           </div>
           <div className='container'>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
-              <Route path='/hr-dashboard' element={<ManagerDashboard />} />
+              <Route path='/hr-dashboard' element={<ManagerDashboard isManager={isAdmin}/>} />
+              <Route path='/sign-in' element={<SignIn setUser={async()=>getData()}/>} />
               <Route path='/solutions' element={<Solutions />} />
               <Route path='/contact-us' element={<Contact />} />
             </Routes>
@@ -40,4 +50,4 @@ function App({ signOut, user }) {
   );
 }
 
-export default withAuthenticator(App);
+export default App;
