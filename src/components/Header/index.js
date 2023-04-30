@@ -1,14 +1,16 @@
+import { useEffect, useState } from 'react';
 import { Nav, Logo, MenuList, MenuItem } from './style.js';
 
 import { Link } from 'react-router-dom';
-const Header = () => {
+const Header = ({ user, signOut }) => {
+  const [session, setSession] = useState('LogIn');
+  useEffect(() => {
+    if (user) setSession('LogOut');
+  }, [session]);
+  console.log('navigation', user);
+  console.log('sess', session);
   return (
     <>
-      {/* <ul class='menu-bar'>
-        <li>Hire</li>
-        <li>Candidate</li>
-        <li>Login</li>
-      </ul> */}
       <Nav>
         <Logo>
           <Link to='/'>SaleSphere</Link>
@@ -18,8 +20,10 @@ const Header = () => {
             <Link to='/about'>About</Link>
           </MenuItem>
           <MenuItem>
-            {/* <Link to='/login'>Login</Link> */}
-            <Link to='/hr-dashboard'>Login</Link>
+            <Link to='/hr-dashboard'>Dashboard</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link  onClick={signOut}>{session}</Link>
           </MenuItem>
         </MenuList>
       </Nav>

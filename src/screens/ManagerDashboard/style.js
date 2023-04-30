@@ -68,9 +68,7 @@ export const Addlisting = styled.div`
 `;
 export const AddListingButton = styled.div`
   padding: 10px;
-  height: 1.7rem;
   width: fit-content;
-  float: right;
   border-radius: 7px;
   justify-self: end;
   :hover {
